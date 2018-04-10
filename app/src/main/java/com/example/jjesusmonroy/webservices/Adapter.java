@@ -91,7 +91,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RecyclerViewHolder> {
         @Override
         protected Void doInBackground(Void... voids) {
             try{
-                URL url = new URL("http://192.168.0.15/datos1/borrar_alumno.php");
+                URL url = new URL("http://172.20.6.105/datos1/borrar_alumno.php");
                 Log.d("url",url.toString());
                 HttpURLConnection httpURLConnection =(HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");

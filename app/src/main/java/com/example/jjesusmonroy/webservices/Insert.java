@@ -63,7 +63,7 @@ public class Insert extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try{
-                URL url = new URL("http://192.168.0.15/datos1/insertar_alumno.php");
+                URL url = new URL("http://172.20.6.105/datos1/insertar_alumno.php");
                 Log.d("url",url.toString());
                 HttpURLConnection httpURLConnection =(HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
@@ -106,7 +106,7 @@ public class Insert extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try{
-                URL url = new URL("http://192.168.0.15/datos1/actualizar_alumno.php");
+                URL url = new URL("http://172.20.6.105/datos1/actualizar_alumno.php");
                 Log.d("url",url.toString());
                 HttpURLConnection httpURLConnection =(HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
