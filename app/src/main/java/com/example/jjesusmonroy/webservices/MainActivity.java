@@ -1,10 +1,13 @@
 package com.example.jjesusmonroy.webservices;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     EditText editText;
     Button search;
+    FloatingActionButton add;
     String parametro;
 
     @Override
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler);
         editText=findViewById(R.id.search);
         search=findViewById(R.id.bsearch);
+        add=findViewById(R.id.add);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,10 +50,20 @@ public class MainActivity extends AppCompatActivity {
                 obtenerAlunmno.execute();
             }
         });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Insert insert = new Insert();
+                insert.mid="";
+                insert.mname="";
+                insert.maddress="";
+                Intent i = new Intent(MainActivity.this,Insert.class);
+                startActivity(i);
+            }
+        });
 
 
     }
-
     private class ObtenerAlumno extends AsyncTask<Void,Void,Void>{
 
         String data="";
@@ -100,4 +116,5 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
         }
     }
+
 }
